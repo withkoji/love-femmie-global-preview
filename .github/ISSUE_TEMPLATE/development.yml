@@ -1,0 +1,50 @@
+name: Development task
+description: Implement or improve LOVE FEMMIE GLOBAL
+title: "[Development] "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: workstream
+    attributes:
+      label: Workstream
+      options:
+        - Stripe and billing
+        - Membership and authentication
+        - Website and mobile apps
+        - Security and compliance
+        - QA and accessibility
+        - Deployment and infrastructure
+        - Content and licensing
+        - Documentation and release
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: [Critical, High, Medium, Low]
+    validations:
+      required: true
+  - type: input
+    id: parent
+    attributes:
+      label: Parent epic or related issue
+      placeholder: "#2"
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements and implementation plan
+      description: Describe behavior, affected routes and expected outcome. Never paste API keys or personal information.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria and test evidence
+      placeholder: "- [ ] Test case..."
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and blockers

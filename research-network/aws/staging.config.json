@@ -1,0 +1,10 @@
+{
+  "environment": "staging",
+  "region": "us-east-1",
+  "hosting": "amplify",
+  "api": "api-gateway-lambda",
+  "database": "rds-postgresql",
+  "identity": "cognito",
+  "secrets": "secrets-manager",
+  "researchEnabled": false
+}

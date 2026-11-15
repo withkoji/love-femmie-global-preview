@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs');
+const assert=require('node:assert/strict');
+const files=['research-network/secure/auth.js','research-network/secure/router.js','research-network/secure/schema.sql','public/research-client.js','public/research-network-secure.html','public/research-admin-secure.html'];
+for(const file of files)assert.ok(fs.existsSync(file),'Missing required file: '+file);
+const server=fs.readFileSync('server.js','utf8');
+assert.ok(!server.includes("require('./research-network/server')"),'Unsafe development router mounted in application');
+const secure=fs.readFileSync('research-network/secure/router.js','utf8');
+assert.ok(secure.includes('adminOnly'),'Missing admin access guard');
+assert.ok(secure.includes('matching_consent'),'Missing consent check');
+console.log('Static readiness checks passed. This does not verify deployment, authentication, or database integration.');
